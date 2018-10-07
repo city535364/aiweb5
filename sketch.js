@@ -24,12 +24,11 @@ function handleFiles() {
   const curFiles = fileInput.files;
   if (curFiles.length === 0) {
     image.src = 'images/bird.jpg';
-    setTimeout(classifyImage, 100);
+    setTimeout(imageReady, 100);
   } else {
     image.src = window.URL.createObjectURL(curFiles[0]);
-    setTimeout(classifyImage, 100);
-  }
-  
+    setTimeout(imageReady, 100);
+  } 
   
 }
 
