@@ -65,7 +65,18 @@ function gotResult(err, results) {
   if (err) {
     console.error(err);
   }
+//  
+  $.get("https://script.google.com/macros/s/AKfycbwkK5yj5cpMG-rMSZgZ5iVznUv964ONn8e5qI4mL5PZ1cMSEatK/exec?q="+results[0].className.toString()+"&source=en&target=zh-TW", function(data, status){
+              
+  var String1 = data.split('translatedText":"');
+  var String2 = String1[1].split('"})');
+            
+  result.innerHTML = String2;  //results[0].label
+  probability.innerHTML = Number.parseFloat(100 * results[0].probability).toFixed(2) + '%';
+ 
+  });
+//  
   // The results are in an array ordered by probability.
-  result.innerHTML = results[0].className.toString();
-  probability.innerHTML = Number.parseFloat(100 * results[0].probability).toFixed(2) + '%';;
+//  result.innerHTML = results[0].className.toString();
+//  probability.innerHTML = Number.parseFloat(100 * results[0].probability).toFixed(2) + '%';
 }
