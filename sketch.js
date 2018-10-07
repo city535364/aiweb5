@@ -10,6 +10,7 @@ This example uses a callback pattern to create the classifier
 === */
 const image = document.getElementById('image');
 const fileInput = document.getElementById('fileUploader');
+const statue = document.getElementById('status');
 // Initialize the Image Classifier method with MobileNet. A callback needs to be passed.
 const classifier = ml5.imageClassifier('MobileNet', modelReady);
 
@@ -44,7 +45,7 @@ function setup() {
 
 // Change the status when the model loads.
 function modelReady(){
-  select('#status').html('Model Loaded')
+  status.innerHTML = "model loaded";
   imageReady();
 }
 
