@@ -68,5 +68,5 @@ function gotResult(err, results) {
   }
   // The results are in an array ordered by probability.
   result.innerHTML = results[0].className;
-  probability.innerHTML = nf(results[0].probability, 0, 2);
+  probability.innerHTML = Number.parseFloat(probresults[0].probability).toFixed(2);
 }
