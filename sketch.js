@@ -10,7 +10,10 @@ This example uses a callback pattern to create the classifier
 === */
 const image = document.getElementById('image');
 const fileInput = document.getElementById('fileUploader');
-const statue = document.getElementById('status');
+const status = document.getElementById('status');
+const result = document.getElementById('result'); // The result tag in the HTML
+const probability = document.getElementById('probability'); // The probability tag in the HTML
+
 // Initialize the Image Classifier method with MobileNet. A callback needs to be passed.
 const classifier = ml5.imageClassifier('MobileNet', modelReady);
 
@@ -64,6 +67,6 @@ function gotResult(err, results) {
     console.error(err);
   }
   // The results are in an array ordered by probability.
-  select('#result').html(results[0].className);
-  select('#probability').html(nf(results[0].probability, 0, 2));
+  result.innerHTML = results[0].className;
+  probability.innerHTML = nf(results[0].probability, 0, 2);
 }
