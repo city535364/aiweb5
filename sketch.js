@@ -67,5 +67,5 @@ function gotResult(err, results) {
   }
   // The results are in an array ordered by probability.
   result.innerHTML = results[0].className;
-  probability.innerHTML = probresults[0].probability;
+  probability.innerHTML = Number.parseFloat(100 * results[0].probability).toFixed(2) + '%';;
 }
