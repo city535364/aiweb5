@@ -18,10 +18,11 @@
 </head>
 
 <body>
+
   <h1>Image classification using MobileNet and p5.js</h1>
       <img src="images/bird.jpg" id="image" class="center">
-	        <button id="uploader-btn" onClick="clickUploader()">Upload Image</button>
-			      <input name="imgFile" type="file" id="fileUploader" accept="image/*" onChange="handleFiles()">
+	  <button id="uploader-btn" onClick="clickUploader()">Upload Image</button>
+	  <input name="imgFile" type="file" id="fileUploader" accept="image/*" onChange="handleFiles()">
   <p id="status">Loading Model...</p>
   <p>The MobileNet model labeled this as <span id="result">...</span>, with a confidence of <span id="probability">...</span>.</p>
   <script src="sketch.js"></script>

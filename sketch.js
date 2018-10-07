@@ -8,19 +8,39 @@ ml5 Example
 Image classification using MobileNet and p5.js
 This example uses a callback pattern to create the classifier
 === */
-
+const image = document.getElementById('image');
+const fileInput = document.getElementById('fileUploader');
 // Initialize the Image Classifier method with MobileNet. A callback needs to be passed.
 const classifier = ml5.imageClassifier('MobileNet', modelReady);
 
 // A variable to hold the image we want to classify
 let img;
 
+function handleFiles() {
+  const curFiles = fileInput.files;
+  if (curFiles.length === 0) {
+    image.src = 'images/bird.jpg';
+    setTimeout(classifyImage, 100);
+  } else {
+    image.src = window.URL.createObjectURL(curFiles[0]);
+    setTimeout(classifyImage, 100);
+  }
+  
+  
+}
+
+function clickUploader() {
+  fileInput.click();
+}
+
+/*
 function setup() {
   noCanvas();
   // Load the image
   img = createImg('images/bird.jpg', imageReady);
   img.size(400, 400);
 }
+*/
 
 // Change the status when the model loads.
 function modelReady(){
@@ -31,7 +51,7 @@ function modelReady(){
 // When the image has been loaded,
 // get a prediction for that image
 function imageReady() {
-  classifier.predict(img, gotResult);
+  classifier.predict(image, gotResult);
   // You can also specify the amount of classes you want
   // classifier.predict(img, 10, gotResult);
 }
